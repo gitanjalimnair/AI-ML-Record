@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="result-container">
+
+    <div class="result-card {% if status_class == 'failure' %}failure{% endif %}">
+
+        <h3>PLACEMENT RESULT</h3>
+
+        {% if status_class == "success" %}
+
+            <div class="status-icon success-icon">
+                ✓
+            </div>
+
+        {% else %}
+
+            <div class="status-icon failure-icon">
+                ✕
+            </div>
+
+        {% endif %}
+
+        <h1>{{ prediction }}</h1>
+
+        <p class="confidence-title">
+
+            Model Confidence
+
+        </p>
+
+        <div class="progress-circle"
+             style="--percentage:{{ confidence }}">
+
+            <div class="progress-inner">
+
+                <span>{{ confidence }}%</span>
+
+            </div>
+
+        </div>
+
+        <a href="/" class="back-btn">
+
+            Check Another Student
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

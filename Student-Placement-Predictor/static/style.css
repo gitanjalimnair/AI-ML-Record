@@ -1,0 +1,378 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:url("images/background.jpg") no-repeat center center fixed;
+
+    background-size:cover;
+
+    overflow:hidden;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:-1;
+
+}
+
+/* ---------- FORM PAGE ---------- */
+
+.glass{
+
+    width:520px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(20,20,20,.45);
+
+    backdrop-filter:blur(22px);
+
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+}
+
+.glass h1{
+
+    color:white;
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#c5c5c5;
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    font-size:15px;
+
+    line-height:24px;
+
+}
+
+.input-group{
+
+    margin-bottom:18px;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+input::placeholder{
+
+    color:#c8c8c8;
+
+}
+
+select{
+
+    color:#c8c8c8;
+
+}
+
+option{
+
+    color:black;
+
+}
+
+input:focus,
+select:focus{
+
+    border:1px solid rgba(255,255,255,.3);
+
+    box-shadow:0 0 15px rgba(255,255,255,.12);
+
+}
+
+button{
+
+    width:100%;
+
+    padding:17px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:white;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 30px rgba(255,255,255,.15);
+
+}
+
+/* ---------- RESULT PAGE ---------- */
+
+.result-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+}
+
+.result-card{
+
+    width:520px;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:rgba(20,20,20,.5);
+
+    backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+}
+
+.result-card h3{
+
+    color:#c7c7c7;
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    margin-bottom:35px;
+
+}
+
+.status-icon{
+
+    width:110px;
+
+    height:110px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:60px;
+
+    font-weight:bold;
+
+    margin-bottom:30px;
+
+}
+
+.success-icon{
+
+    background:#22c55e;
+
+    color:white;
+
+    box-shadow:0 0 35px rgba(34,197,94,.55);
+
+}
+
+.failure-icon{
+
+    background:#ef4444;
+
+    color:white;
+
+    box-shadow:0 0 35px rgba(239,68,68,.55);
+
+}
+
+.result-card h1{
+
+    color:white;
+
+    font-size:46px;
+
+    margin-bottom:30px;
+
+    line-height:1.2;
+
+}
+
+.confidence-title{
+
+    color:#bdbdbd;
+
+    margin-bottom:20px;
+
+    font-size:18px;
+
+}
+
+.progress-circle{
+
+    --size:180px;
+
+    width:var(--size);
+
+    height:var(--size);
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #22c55e calc(var(--percentage)*1%),
+        rgba(255,255,255,.12) 0
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.failure .progress-circle{
+
+    background:
+    conic-gradient(
+        #ef4444 calc(var(--percentage)*1%),
+        rgba(255,255,255,.12) 0
+    );
+
+}
+
+.progress-inner{
+
+    width:135px;
+
+    height:135px;
+
+    border-radius:50%;
+
+    background:#181818;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:15px 28px;
+
+    text-decoration:none;
+
+    border-radius:14px;
+
+    background:white;
+
+    color:black;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 30px rgba(255,255,255,.18);
+
+}

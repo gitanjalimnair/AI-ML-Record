@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car Price Prediction AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="{{ url_for('static', filename='car.jpg') }}"
+         class="car-image">
+
+    <h1>🚗 Car Price Prediction AI</h1>
+
+    <form action="/predict" method="POST">
+
+        <label>Present Price (Lakhs)</label>
+        <input type="number" step="0.01" name="present_price" required>
+
+        <label>Kilometers Driven</label>
+        <input type="number" name="kms_driven" required>
+
+        <label>Fuel Type</label>
+        <select name="fuel_type">
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+        </select>
+
+        <label>Seller Type</label>
+        <select name="seller_type">
+            <option value="0">Dealer</option>
+            <option value="1">Individual</option>
+        </select>
+
+        <label>Transmission</label>
+        <select name="transmission">
+            <option value="0">Manual</option>
+            <option value="1">Automatic</option>
+        </select>
+
+        <label>Owner</label>
+        <input type="number" name="owner" min="0" max="3" required>
+
+        <label>Car Age (Years)</label>
+        <input type="number" name="car_age" required>
+
+        <button type="submit">
+            Predict Price
+        </button>
+
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>
